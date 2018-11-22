@@ -29,8 +29,10 @@ MongoClient.connect('mongodb://localhost:27017/Users', (err, client)=>{
   //   console.log('Unable to fetch todos', err);
   // });
 
-db.collection('Users').find({name:'so young park'}).toArray().then((docs)=>{console.log(JSON.stringify(docs, undefined, 2));
+// db.collection('Users').find({name:'so young park'}).toArray().then((docs)=>{console.log(JSON.stringify(docs, undefined, 2));
 
-});
+  db.collection('Users').find({_id:1}).toArray().then((answer)=>{console.log(answer);}, (err)=>{
+    console.log('Unable to fetch data', err);
+  });
 //client.close();
 });
